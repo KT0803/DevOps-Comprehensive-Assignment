@@ -1,0 +1,21 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: mongo
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+  app:
+    build:
+      context: ./backend
+    container_name: app
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - "80:80"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/devops_db
+      - PORT=80
+volumes:
+  mongo_data:
