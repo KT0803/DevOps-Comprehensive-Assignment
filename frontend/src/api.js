@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create axios instance
 const API = axios.create({
-  baseURL: "http://127.0.0.1:5000/api",
+  baseURL: "/api",
 });
 
 // Get all users
@@ -30,7 +30,7 @@ export const createUser = async (userData) => {
 // delete user
 export const deleteUser = async (id) => {
   try {
-    const res = await API.delete(`/users/${id}`);
+    const res = await API.delete(⁠ /users/${id} ⁠);
     return res.data;
   } catch (err) {
     console.error("Error deleting user:", err.message);
@@ -41,7 +41,7 @@ export const deleteUser = async (id) => {
 // update user
 export const updateUser = async (id, data) => {
   try {
-    const res = await API.put(`/users/${id}`, data);
+    const res = await API.put(⁠ /users/${id} ⁠, data);
     return res.data;
   } catch (err) {
     console.error("Error updating user:", err.message);
